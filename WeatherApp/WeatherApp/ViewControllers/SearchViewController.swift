@@ -148,10 +148,10 @@ extension SearchViewController: CLLocationManagerDelegate {
         }
         
     }
-    
+
+    // Handle errors, typically this is denied permissions and can be treated without further action
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("location errors occured")
-        // Handle errors, typically this is denied permissions and can be treated without further action
+
     }
 }
 

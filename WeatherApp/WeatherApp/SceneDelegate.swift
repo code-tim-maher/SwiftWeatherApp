@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: scene)
 
-        
         let rootViewController = SearchViewController()
         window.rootViewController = rootViewController
 
