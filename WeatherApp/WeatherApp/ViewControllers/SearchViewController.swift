@@ -54,6 +54,7 @@ class SearchViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: geocoderCellIdentifier)
         tableView.layer.cornerRadius = commonCornerRadius
         searchBar.layer.cornerRadius = commonCornerRadius
+        searchBar.accessibilityIdentifier = "searchBar"
     }
     
     // CLLocationButton (Button to request user position) has been tapped
@@ -180,6 +181,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        cell.accessibilityIdentifier = String(format: "tableRow_%d", indexPath.row)
         return cell
     }
     

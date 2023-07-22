@@ -22,12 +22,34 @@ final class WeatherAppUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testCityEntryAndRoutetoWeatherDetails() throws {
+       
         let app = XCUIApplication()
         app.launch()
+        sleep(5)
+        
+        // check that if the app is in a state in which we preloaded a location and showing weather details screen, if so swipe down.
+        let iconImageView = app.images["iconImageView"]
+        if iconImageView.exists {
+            iconImageView.swipeDown(velocity: .fast)
+        }
+        
+        // Find search bar, enter "boston"
+        let searchBar = app.searchFields.firstMatch
+        searchBar.tap()
+        searchBar.typeText("Boston")
+       
+        // Tap on first tableRow of suggestions
+        let allCells = app.cells
+        let firstCell = allCells.containing(.cell, identifier: "tableRow_0").firstMatch
+        firstCell.tap()
+        
+        sleep(5)
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Assert that we are takien to Weather Details view.
+        let weatherDetailIconImageView = app.images["iconImageView"]
+        XCTAssert(weatherDetailIconImageView.exists)
+        
     }
 
     func testLaunchPerformance() throws {

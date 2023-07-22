@@ -13,7 +13,6 @@ public struct WeatherService {
         
         var weatherEndpointURLString = baseWeatherEndpointURL.replacingOccurrences(of: "{lat}", with: String(lat))
         weatherEndpointURLString = weatherEndpointURLString.replacingOccurrences(of: "{lon}", with: String(lon))
-        print(weatherEndpointURLString)
         
         guard let url = URL(string: weatherEndpointURLString) else {
                 return nil
