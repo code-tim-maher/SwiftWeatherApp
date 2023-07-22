@@ -11,13 +11,14 @@ import WeatherService
 // A simple readonly view controller that displays weather data about the selected location.
 class WeatherDetailController: UIViewController {
 
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var lowTempLabel: UILabel!
-    @IBOutlet weak var highTempLabel: UILabel!
-    @IBOutlet weak var windSpeedLabel: UILabel!
-    @IBOutlet weak var windBearingLabel: UILabel!
-    
+    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
+    @IBOutlet private weak var lowTempLabel: UILabel!
+    @IBOutlet private weak var highTempLabel: UILabel!
+    @IBOutlet private weak var windSpeedLabel: UILabel!
+    @IBOutlet private weak var windBearingLabel: UILabel!
+    @IBOutlet private weak var tempOverviewLabel: UILabel!
+    @IBOutlet private weak var humidityLabel: UILabel!
     
     private var weatherResponse: WeatherResponse
     
@@ -61,9 +62,11 @@ class WeatherDetailController: UIViewController {
     // For data immediately available, format labels to show appropriate data
     private func setupLabels() {
         cityLabel.text = weatherResponse.name
-        highTempLabel.text = String(format: "High: %.1f F", weatherResponse.main.temp_max)
-        lowTempLabel.text = String(format: "Low: %.1f F", weatherResponse.main.temp_min)
+        highTempLabel.text = String(format: "High: %.1f°F", weatherResponse.main.temp_max)
+        lowTempLabel.text = String(format: "Low: %.1f°F", weatherResponse.main.temp_min)
         windSpeedLabel.text = String(format: "Wind: %.1f MPH", weatherResponse.wind.speed)
-        windBearingLabel.text = String(format: "Direction: %.1f", weatherResponse.wind.deg)
+        windBearingLabel.text = String(format: "Direction: %.1f°", weatherResponse.wind.deg)
+        tempOverviewLabel.text = String(format: "Temp is: %.1f°F but feels like %.1f°F", weatherResponse.main.temp, weatherResponse.main.feels_like)
+        humidityLabel.text = String(format: "Humidity is %.1f %%", weatherResponse.main.humidity)
     }
 }
