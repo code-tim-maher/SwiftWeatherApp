@@ -3,7 +3,7 @@
 
 ## Weather Service - A Swift Package
 
-## WEather App - Swift iOS App using UIKit
+## Weather App - Swift iOS App using UIKit
 
 
 Notes: 
