@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="WeatherApp" customModuleProvider="target">
+            <connections>
+                <outlet property="currentLocationButton" destination="AxF-Yb-Eau" id="ao8-R0-1U5"/>
+                <outlet property="searchBar" destination="IVJ-oX-BOx" id="d6a-Rx-NC9"/>
+                <outlet property="tableView" destination="tGI-LW-H4H" id="pXa-bS-JdN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="dg9-JZ-6KM">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgY-ao-XCK">
+                    <rect key="frame" x="20" y="79" width="353" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <searchBar contentMode="redraw" placeholder="Atlanta, GA or 30092" translatesAutoresizingMaskIntoConstraints="NO" id="IVJ-oX-BOx">
+                    <rect key="frame" x="0.0" y="120" width="393" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="fS7-Xx-GJj"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tGI-LW-H4H">
+                    <rect key="frame" x="0.0" y="186" width="393" height="160"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="Mx0-4j-oLl"/>
+                    </constraints>
+                </tableView>
+                <clLocationButton opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" label="currentLocation" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-Yb-Eau">
+                    <rect key="frame" x="219" y="69" width="154" height="41"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <color key="tintColor" systemColor="systemWhiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="154" id="32x-Hq-wr6"/>
+                        <constraint firstAttribute="height" constant="41" id="qr7-0b-g9l"/>
+                    </constraints>
+                    <connections>
+                        <action selector="currentLocationTapped:" destination="-1" eventType="touchUpInside" id="4sa-j7-UWe"/>
+                    </connections>
+                </clLocationButton>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tGI-LW-H4H" secondAttribute="trailing" id="06z-gO-ndg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QgY-ao-XCK" secondAttribute="trailing" constant="20" id="7ia-In-AH6"/>
+                <constraint firstItem="IVJ-oX-BOx" firstAttribute="top" secondItem="QgY-ao-XCK" secondAttribute="bottom" constant="20" id="8UB-lR-W5n"/>
+                <constraint firstItem="dg9-JZ-6KM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="G5P-L7-GaI"/>
+                <constraint firstItem="AxF-Yb-Eau" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="LSx-A8-ewi"/>
+                <constraint firstItem="tGI-LW-H4H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yef-9J-CLR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dg9-JZ-6KM" secondAttribute="bottom" id="ZkO-hO-jcV"/>
+                <constraint firstItem="QgY-ao-XCK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dJF-JU-rm0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IVJ-oX-BOx" secondAttribute="trailing" id="e0S-1S-qrP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AxF-Yb-Eau" secondAttribute="trailing" constant="20" id="eJr-mT-rgu"/>
+                <constraint firstItem="tGI-LW-H4H" firstAttribute="top" secondItem="IVJ-oX-BOx" secondAttribute="bottom" constant="10" id="eY4-c3-CgE"/>
+                <constraint firstItem="dg9-JZ-6KM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hmx-1L-XKc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dg9-JZ-6KM" secondAttribute="trailing" id="tmm-iq-73N"/>
+                <constraint firstItem="QgY-ao-XCK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="vCV-jW-lzW"/>
+                <constraint firstItem="IVJ-oX-BOx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yEN-xw-Aeb"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9dW-sl-nQ4">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="79" y="-164"/>
+        </label>
+    </objects>
+    <resources>
+        <image name="clouds" width="242.66667175292969" height="182"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemWhiteColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
